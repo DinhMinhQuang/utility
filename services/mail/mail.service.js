@@ -57,51 +57,24 @@ module.exports = {
 	 * Methods
 	 */
 	methods: {
-		getAccessToken: require("./methods/getAccessToken.method"),
-		requestAPI: require("./methods/request.method")
 	},
 
 	/**
 	 * Service created lifecycle event handler
 	 */
-	async created() {
-		// const request = https.request(baseUrl + apiRequest.path, apiRequest, (response) => {
-		// 	let data = "";
-
-		// 	response.on("data", (chunk) => {
-		// 		data += chunk;
-		// 	});
-
-		// 	response.on("end", () => {
-		// 		console.log("Response:", data);
-		// 	});
-		// });
-
-		// Handle errors
-		// request.on("error", (error) => {
-		// 	console.error("Error:", error.message);
-		// });
-
-	},
+	async created() {},
 
 	/**
 	 * Service started lifecycle event handler
 	 */
 	async started() {
-		setTimeout(async () => {
-			// const test = await this.broker.call("v1.mail.send.async", {
-			// 	params: {
-			// 		email: "strin",
-			// 		activeCode: "String"
-			// 	}
-			// });
-			// console.log(test);
-			const test = await this.broker.call("v1.mail.send", {
-				email: "letuyettrinh10c12@gmail.com",
-				activeCode: 1231
-			});
-			console.log(test);
-		}, 1000);
+		// setTimeout(async () => {
+		// 	const test = await this.broker.call("v1.mail.send", {
+		// 		email: "letuyettrinh10c12@gmail.com",
+		// 		activeCode: 1231
+		// 	});
+		// 	console.log(test);
+		// }, 1000);
 	},
 
 	/**

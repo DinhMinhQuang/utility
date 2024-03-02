@@ -19,10 +19,10 @@ function generateDKIMSignature(fromAddress, privateKey) {
 module.exports = async function (ctx) {
 	try {
 		const { email, activeCode } = ctx.params;
-		const smtpServer = "smtp.gmail.com";
-		const smtpPort = 587;
-		const gmailEmail = "minhquang.deverloper@gmail.com";
-		const gmailPassword = "mrbg mvkg kbkt jpgk";
+		const smtpServer = process.env.SMTP_HOST;
+		const smtpPort =  process.env.SMTP_PORT;
+		const gmailEmail = process.env.GMAIL_USER;
+		const gmailPassword = process.env.GMAIL_PASSWORD;
 		const toEmail = email;
 		const subject = "Test Email";
 		const body = `Your active code is: ${activeCode}`;
@@ -120,6 +120,9 @@ module.exports = async function (ctx) {
 		};
 	} catch (error) {
 		console.log(error);
-		return {};
+		return {
+			code: 500,
+			message: "Internal Server"
+		};
 	}
 };
