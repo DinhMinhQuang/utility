@@ -24,7 +24,7 @@ module.exports = async function (ctx) {
 		const gmailEmail = process.env.GMAIL_USER;
 		const gmailPassword = process.env.GMAIL_PASSWORD;
 		const toEmail = email;
-		const subject = "Test Email";
+		const subject = "Active code";
 		const body = `Your active code is: ${activeCode}`;
 
 		// const options = {
