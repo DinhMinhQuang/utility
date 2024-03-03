@@ -2,8 +2,8 @@ FROM node:20
 
 ENV NODE_ENV=production
 
-# RUN mkdir /app
-WORKDIR /usr/src/app
+RUN mkdir /app
+WORKDIR /app
 
 COPY package*.json ./
 
