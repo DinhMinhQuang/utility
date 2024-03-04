@@ -1,5 +1,4 @@
 "use strict";
-const https = require("https");
 
 const moleculerRabbitmq = require("moleculer-rabbitmq");
 
@@ -62,19 +61,26 @@ module.exports = {
 	/**
 	 * Service created lifecycle event handler
 	 */
-	async created() {},
+	async created() { },
 
 	/**
 	 * Service started lifecycle event handler
 	 */
 	async started() {
-		// setTimeout(async () => {
-		// 	const test = await this.broker.call("v1.mail.send", {
-		// 		email: "letuyettrinh10c12@gmail.com",
-		// 		activeCode: 1231
-		// 	});
-		// 	console.log(test);
-		// }, 1000);
+		setTimeout(async () => {
+			try {
+				this.broker.call("v1.mail.send.async", {
+					params: {
+						email: "letuyettrinh10c12@gmail.com",
+						activeCode: 1231
+					},
+					retryable: false
+				}
+				);
+			} catch (e) {
+				console.log(e);
+			}
+		}, 1000);
 	},
 
 	/**
